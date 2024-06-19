@@ -19,22 +19,28 @@ if(isset($_GET["action"])) {
                     $requete->execute(["email" =>$email]);
                     $user = $requete->fetch();
                     //si mon utilisateur existe 
-                    if($user){
-                        header ("Location: register.php");exit;
+                    if($user){ 
+                        // var_dump($user);
+                        header("Location: register.php");exit;
                     }else{
+                       
                         //insertion de l'utilisateur en BDD
                         // je verifie le mdp et sa confirmation sont les meme et que le mdp esr >= 5 caractères 
-                        if($pass1 == $pass2 && strlent($pass1) >= 5) { 
-                            $insertUser = $pdo->prepare("INSERT INTO user (username, email, pass1) VALUES (:username, :email, :password)");
+                        if($pass1 == $pass2 && strlen($pass1) >= 5) { 
+                            $insertUser = $pdo->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
                             $insertUser->execute([
-                                "username"  => $pseudo,
+                                "username"  => $username,
                                 "email" =>$email,
                                 "password"  =>password_hash($pass1, PASSWORD_DEFAULT)
                             ]);
-                            header("Location: login.php");
+                            header("Location: login.php");exit;
 
+                        }else {
+                            //message "Les mots de passe ne sont pas identiques ou mot de passe trop court"
                         }
                     }
+                }else {
+                    // probleme de saisie dans le champs de formulaire 
                 }
         break;
            

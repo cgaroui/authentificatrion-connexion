@@ -9,7 +9,7 @@
     <div class="container">
         <h2>Inscription</h2>
         <form id="registrationForm" action="traitement.php?action=register" method="POST">
-            <label for="username">Pseudo</label>
+            <label for="username">username</label>
             <input type="text" id="username" name="username" >
 
             <label for="email">Email</label>
