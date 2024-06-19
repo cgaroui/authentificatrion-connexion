@@ -15,10 +15,10 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" >
 
-            <label for="password">Mot de passe</label>
+            <label for="pass1">Mot de passe</label>
             <input type="password" id="password" name="pass1" >
 
-            <label for="confirm_password">Confirmer le mot de passe</label>
+            <label for="pass2">Confirmer le mot de passe</label>
             <input type="password" id="confirm_password" name="pass2" >
 
             <button type="submit" name="submit">S'inscrire</button>
