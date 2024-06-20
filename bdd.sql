@@ -22,13 +22,19 @@ USE `authentification_chaima`;
 -- Listage de la structure de table authentification_chaima. user
 CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `email` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `password` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table authentification_chaima.user : ~0 rows (environ)
+-- Listage des données de la table authentification_chaima.user : ~5 rows (environ)
+INSERT INTO `user` (`id_user`, `username`, `email`, `password`) VALUES
+	(2, 'chai', 'chai@gmail.com', '$2y$10$nuW1URSCN1ub5yv7ijapxeo7CmIk6XBCVJ2JxIwpETBsjEBQyoSbm'),
+	(3, 'chaima', 'chaima@gmail.com', '$2y$10$0NR4HeF2Sl157JJ9tSj2XeQcyTw07C..ziaQJ3Kv2.i2Djxccwio2'),
+	(4, 'asma', 'asma@gmail.com', '$2y$10$tRPTCXPkhnOiVQ3fHHO1g.bPCqME.X6qWsR8hCY1gzsuevjdDGoRu'),
+	(5, 'ilyes', 'ilyes@exemple.com', '$2y$10$.nwsvH0DjGzvK2NTVTSt7u.ekkuNfMfesPjc0rD/F7A3Iq/rmAZlC'),
+	(6, 'kew', 'kew@exemple.com', '$2y$10$D7nDSNWIMLI1YQ/tMykPC.Yvf7RI5b03MzRfJb3FeuEVlrL6v2IQu');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
