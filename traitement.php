@@ -49,7 +49,7 @@ if(isset($_GET["action"])) {
 
         case "login" : 
             //je verifie si je soumet bien mon formulaire 
-            if($_POST["submit"]) {
+            if(isset($_POST["submit"])) {
                 //connexion à la BDD
                 $pdo = new PDO("mysql:host=localhost;dbname=authentification_chaima;charset=utf8", "root", "");
                 //filtrer les champs ( sécurité contre les failles XSS)
@@ -69,22 +69,27 @@ if(isset($_GET["action"])) {
                         //$hash représente le mot de passe haché stocké en base de données, et $password est le mot de passe saisi dans le formulaire. password_verify vérifie si les deux mots de passe correspondent
                         if(password_verify($password, $hash)){
                             $_SESSION["utilisateur"] = $user; //on stocke dans le tableau utilisateur les information de user 
-             
-                           header("Location: home.php"); exit;
+                           header("Location: home.php");
+                            exit;
                         }else {
                             echo "utilisateur inconnu ou mot de passe incorrect ";
-                            header("Location: login.php"); exit;
+                            // header("Location: login.php"); exit;
                         }
                     }else {
                         echo "utilisateur inconnu ou mot de passe incorrect";
-                        header("Location: login.php"); exit;
+                        // header("Location: login.php"); exit;
                     }
                 }
             }
             header("Location: login.php");exit;
         break;
 
-        case "logout";
+        case "profil":
+            header("Location: profil.php" );exit;
+
+        case "logout":
+            unset($_SESSION["utilisateur"]);
+            header("Location: home.php");exit;
         break;
 
         }   
